@@ -1,0 +1,62 @@
+enable
+configure terminal
+
+###BASIC SWITCH CONFIGURATION###
+
+hostname S2
+
+enable secret admin
+
+line console 0
+ password password
+ login
+exit 
+
+line vty 0 15
+ password password
+ login
+exit
+
+service password-encryption
+
+###VLAN CONFIGURATION###
+
+vlan 10
+ name VLAN-10
+exit
+
+vlan 20
+ name VLAN-20
+exit
+
+vlan 999
+ name UNUSED-NATIVE
+exit
+
+###ACCESS PORT CONFIGURATION###
+
+interface range fastethernet 0/1-2
+ switchport mode access
+ switchport access vlan 10
+exit
+
+interface range fastethernet 0/3-4
+ switchport mode access
+ switchport access vlan 20
+exit
+
+interface range fastethernet 0/5-24, gigaethernet 0/1-2
+ switchport mode access
+ switchport access vlan 999
+exit
+
+###TRUNK CONFIGURATION###
+
+interface fastethernet 0/24
+ switchport mode trunk
+ switchport trunk native vlan 999
+ switchport trunk allowed vlan 10,20
+exit
+
+end
+copy running-config startup-config
