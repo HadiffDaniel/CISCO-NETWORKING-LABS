@@ -51,7 +51,6 @@ The Switch configurations are available in *configs* folder.
 
 
 * *SWITCH 1.txt* - Switch 1 configuration
-* *SWITCH 2.txt* - Switch 2 configuration
 
 
 
