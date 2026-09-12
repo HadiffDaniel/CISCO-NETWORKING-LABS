@@ -61,3 +61,11 @@ exit
 
 end
 copy running-config startup-config
+
+###VERIFICATION###
+
+show vlan brief
+show interfaces status
+show interfaces trunk
+show mac address-table
+show running-config
