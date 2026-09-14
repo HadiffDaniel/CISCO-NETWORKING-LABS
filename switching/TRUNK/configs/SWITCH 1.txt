@@ -1,7 +1,8 @@
 enable
 configure terminal
+	
 
-###BASIC SWITCH CONFIGURATION###
+=== BASIC SWITCH CONFIGURATION ===
 
 hostname S1
 
@@ -19,7 +20,8 @@ exit
 
 service password-encryption
 
-###VLAN CONFIGURATION###
+
+=== VLAN CONFIGURATION ===
 
 vlan 10
  name VLAN-10
@@ -33,7 +35,8 @@ vlan 999
  name UNUSED-NATIVE
 exit
 
-###ACCESS PORT CONFIGURATION###
+
+=== ACCESS PORT CONFIGURATION ===
 
 interface range fastethernet 0/1-2
  switchport mode access
@@ -51,21 +54,14 @@ interface range fastethernet 0/5-24, gigaethernet 0/1-2
  shutdown
 exit
 
-###TRUNK CONFIGURATION###
+
+=== TRUNK CONFIGURATION ===
 
 interface fastethernet 0/24
  switchport mode trunk
  switchport trunk native vlan 999
- switchport trunk allowed vlan 10,20
+ switchport trunk allowed vlan 10,20,999
 exit
 
 end
 copy running-config startup-config
-
-###VERIFICATION###
-
-show vlan brief
-show interfaces status
-show interfaces trunk
-show mac address-table
-show running-config
