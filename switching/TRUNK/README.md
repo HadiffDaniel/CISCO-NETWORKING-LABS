@@ -91,5 +91,13 @@ Trunk connectivity and the native VLAN configuration were also verified.
 * Cisco Packet Tracer
 * Cisco IOS
 
+##### **What I Learned**
 
 
+
+* Configure trunk ports between Cisco switches to carry traffic from multiple VLANs.
+* Learned how VLAN traffic can be extended between switches using trunk links.
+* Configure and verify a native VLAN on trunk ports.
+* Learned how to allow and manage multiple VLANs across a trunk connection.
+* Learned how to verify trunk status, VLAN assignments, and MAC address learning using Cisco IOS commands.
+* Gained hands-on experience implementing VLAN segmentation and inter-switch connectivity using Cisco Packet Tracer.
