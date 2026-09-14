@@ -1,0 +1,89 @@
+=== Basic Configuration ===
+
+enable
+configure terminal
+
+hostname S1
+
+enable secret admin
+
+line console 0
+ password password
+ login
+exit
+
+line vty 0 15
+ password password
+ login
+exit
+
+service password-encryption
+
+
+=== VLAN Configuration ===
+
+vlan 10
+ name VLAN-10
+exit
+
+vlan 20
+ name VLAN-20
+exit
+
+vlan 999
+ name UNUSED-NATIVE
+exit
+
+interface fastethernet 0/3
+ switchport mode access
+ switchport access vlan 10
+exit
+
+
+=== Trunk Configuration ===
+
+interface fastethernet 0/1
+ switchport mode trunk
+ switchport trunk native vlan 999
+ switchport trunk allowed vlan 10,20,999
+exit 
+
+interface fastethernet 0/2
+ switchport mode trunk
+ switchport trunk native vlan 999
+ switchport trunk allowed vlan 10,20,999
+exit 
+
+
+=== STP Configuration ===
+
+spanning-tree mode rapid-pvst
+
+spanning-tree vlan 10 root primary
+
+
+=== Edge Port Security ===
+
+interface fastethernet 0/3
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+exit
+
+
+=== Move Unused Port to Native VLAN ===
+
+interface range fastethernet 0/4-23, gigaethernet 0/1-2
+ switchport mode access
+ switchport access vlan 999
+ shutdown
+end
+
+
+=== Verification ===
+
+show running-config
+show interfaces trunk
+show interfaces status
+show vlan brief
+show spanning-tree
+show spanning-tree vlan 10
