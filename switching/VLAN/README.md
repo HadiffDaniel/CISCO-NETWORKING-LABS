@@ -83,3 +83,15 @@ The VLANS were successfully created and assigned to appropriate switch ports.
 * Cisco Packet Tracer
 * Cisco IOS
 
+
+
+##### **WHAT I LEARNED**
+
+
+
+* Create and manage VLANs on Cisco switches.
+* Assign switch ports to specific VLANs.
+* Purpose of using a native VLAN and how to configure it.
+* Verify VLAN and port configurations using Cisco IOS commands.
+* Learned how VLANs can be used to logically separate devices within a network.
+* Gained hands-on experience with basic switch configuration and VLAN management using Cisco Packet Tracer.
